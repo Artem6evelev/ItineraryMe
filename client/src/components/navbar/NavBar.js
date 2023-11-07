@@ -9,8 +9,18 @@ import {
   Typography,
 } from "@mui/material";
 import { Menu, Lock } from "@mui/icons-material";
+import photoURL from "../../artem.png";
+import { useValue } from "../../context/ContextProvider";
+import UserIcons from "../user/UserIcons";
+
+const user = { name: "test", photoURL };
 
 const NavBar = () => {
+  const {
+    state: { currentUser },
+    dispatch,
+  } = useValue();
+
   return (
     <AppBar>
       <Container maxWidth="lg">
@@ -36,9 +46,17 @@ const NavBar = () => {
           >
             YRW
           </Typography>
-          <Button color="inherit" startIcon={<Lock />}>
-            Login
-          </Button>
+          {!currentUser ? (
+            <Button
+              color="inherit"
+              startIcon={<Lock />}
+              onClick={() => dispatch({ type: "UPDATE_USER", payload: user })}
+            >
+              Login
+            </Button>
+          ) : (
+            <UserIcons />
+          )}
         </Toolbar>
       </Container>
     </AppBar>
