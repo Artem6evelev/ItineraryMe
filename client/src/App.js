@@ -1,8 +1,14 @@
 import "./App.css";
 import NavBar from "./components/navbar/NavBar";
+import Login from "./components/user/Login";
 
 function App() {
-  return <NavBar />;
+  return (
+    <>
+      <Login />
+      <NavBar />
+    </>
+  );
 }
 
 export default App;
