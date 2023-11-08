@@ -4,6 +4,8 @@ const reducer = (state, action) => {
       return { ...state, openLogin: true };
     case "CLOSE_LOGIN":
       return { ...state, openLogin: false };
+    case "UPDATE_ALERT":
+      return { ...state, alert: action.payload };
     case "UPDATE_USER":
       return { ...state, currentUser: action.payload };
 
