@@ -85,7 +85,7 @@ const Login = () => {
               margin="normal"
               variant="standard"
               id="name"
-              label="name"
+              label="Name"
               type="text"
               fullWidth
               inputRef={nameRef}
@@ -98,7 +98,7 @@ const Login = () => {
             margin="normal"
             variant="standard"
             id="email"
-            label="email"
+            label="Email"
             type="email"
             fullWidth
             inputRef={emailRef}
