@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { Close, Send } from "@mui/icons-material";
 import PasswordField from "./PasswordField";
 import GoogleOneTapLogin from "./GoogleOneTapLogin";
+import { register } from "../../actions/user";
 
 const Login = () => {
   const {
@@ -47,6 +48,7 @@ const Login = () => {
         },
       });
     // send register request
+    register({ name, email, password }, dispatch);
 
     // // testing Loading
     // dispatch({ type: "START_LOADING" });
