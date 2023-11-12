@@ -32,18 +32,13 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // testing Loading
-    dispatch({ type: "START_LOADING" });
-
-    setTimeout(() => {
-      dispatch({ type: "END_LOADING" });
-    }, 6000);
-
-    // testing Notification
+    const email = emailRef.current.value;
     const password = passwordRef.current.value;
+    // send login request if it is not register and return
+    const name = nameRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
-    if (password !== confirmPassword) {
-      dispatch({
+    if (password !== confirmPassword)
+      return dispatch({
         type: "UPDATE_ALERT",
         payload: {
           open: true,
@@ -51,7 +46,28 @@ const Login = () => {
           message: "Passwords do not match",
         },
       });
-    }
+    // send register request
+
+    // // testing Loading
+    // dispatch({ type: "START_LOADING" });
+
+    // setTimeout(() => {
+    //   dispatch({ type: "END_LOADING" });
+    // }, 6000);
+
+    // // testing Notification
+    // const password = passwordRef.current.value;
+    // const confirmPassword = confirmPasswordRef.current.value;
+    // if (password !== confirmPassword) {
+    //   dispatch({
+    //     type: "UPDATE_ALERT",
+    //     payload: {
+    //       open: true,
+    //       severity: "error",
+    //       message: "Passwords do not match",
+    //     },
+    //   });
+    // }
   };
 
   useEffect(() => {
