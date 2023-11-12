@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { Close, Send } from "@mui/icons-material";
 import PasswordField from "./PasswordField";
 import GoogleOneTapLogin from "./GoogleOneTapLogin";
-import { register } from "../../actions/user";
+import { login, register } from "../../actions/user";
 
 const Login = () => {
   const {
@@ -35,6 +35,7 @@ const Login = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+    if (!isRegister) return login({ email, password }, dispatch);
     // send login request if it is not register and return
     const name = nameRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
