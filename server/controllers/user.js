@@ -56,3 +56,17 @@ export const login = tryCatch(async (req, res) => {
     result: { id, name, email: emailLowerCase, photoURL, token },
   });
 });
+
+export const updateProfile = tryCatch(async (res, req) => {
+  const updateUser = await User.findByIdAndupdate(req.user.id, req.body, {
+    new: true,
+  });
+  const { _id: id, name, photoURL } = updateUser;
+
+  //TODO update all the rooms records added by this user
+
+  const token = jwt.sign({ id, name, photoURL }, process.env.JWT_SECRET, {
+    expiresIn: "1h",
+  });
+  res.status(200).json({ success: true, result: { name, photoURL, token } });
+});
