@@ -12,7 +12,7 @@ import {
 import { Close, Send } from "@mui/icons-material";
 import { useValue } from "../../context/ContextProvider";
 import { useRef } from "react";
-// import { updateProfile } from "../../actions/user";
+import { updateProfile } from "../../actions/user";
 
 const Profile = () => {
   const {
@@ -38,8 +38,9 @@ const Profile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
-    // updateProfile(currentUser, { name, file: profile.file }, dispatch);
+    updateProfile(currentUser, { name, file: profile.file }, dispatch);
   };
+
   return (
     <Dialog open={profile.open} onClose={handleClose}>
       <DialogTitle>

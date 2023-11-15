@@ -19,7 +19,7 @@ const auth = async (req, res, next) => {
         photoURL: payload.picture,
       };
     } else {
-      const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
       const { id, name, photoURL } = decodedToken;
       req.user = { id, name, photoURL };
     }
