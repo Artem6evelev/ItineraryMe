@@ -1,4 +1,5 @@
 import "./App.css";
+import BottomNav from "./components/bottomNav/BottomNav";
 import Loading from "./components/loading/Loading";
 import NavBar from "./components/navbar/NavBar";
 import Notification from "./components/notification/Notification";
@@ -11,6 +12,7 @@ function App() {
       <Notification />
       <Login />
       <NavBar />
+      <BottomNav />
     </>
   );
 }
